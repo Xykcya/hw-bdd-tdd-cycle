@@ -19,7 +19,16 @@ module NavigationHelpers
      # debugger
      movie = Movie.find_by_title($1)#get movie info by Title
      edit_movie_path(movie.id)#edit movie by finded id
-    
+    #todo 
+    when /^the details page for "([^"]+)"$/
+      movie = Movie.find_by_title($1)#get movie info by Title
+      movie_path(movie.id)#edit movie by finded id
+    when /^the Similar Movies page for "(.+)"/
+      movie = Movie.find_by_title($1)
+      same_director_path(movie)
+
+      
+    #
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
